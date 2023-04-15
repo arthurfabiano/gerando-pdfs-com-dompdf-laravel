@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApresentacaoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', [ApresentacaoController::class, 'index'])->name('index');
+Route::get('cursos/{size?}/{orientation?}', [ApresentacaoController::class, 'cursos'])->name('cursos');
+Route::get('page', [ApresentacaoController::class, 'pagePDF'])->name('page');
